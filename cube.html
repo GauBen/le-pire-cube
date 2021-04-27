@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+<meta name=mobile-web-app-capable content=yes>
+<title>Le Pire Cube</title>
+<style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit
+    }
+
+    :root {
+        box-sizing: border-box;
+        height: 100%;
+        font-size: .5em
+    }
+
+    body {
+        margin: 0
+    }
+
+    canvas {
+        position: absolute
+    }
+</style>
+<canvas id=board></canvas>
+<script src="cube.js"></script>
+<script>
+
+    window.addEventListener('load', function () {
+
+        /** @type HTMLCanvasElement */
+        const $board = document.querySelector("canvas#board")
+        /** @type HTMLCanvasElement */
+        const $offscreen = document.createElement("canvas")
+
+        // document.body.appendChild($offscreen)
+
+        let settings = new GameSettings(this, $board, $offscreen)
+        let m = new Main(settings)
+        m.run()
+
+    })
+
+    /* Todo :
+    - menu
+    - game settings
+    - joystick graphics
+    - autoscale, improved joystick
+    - fkin cleanup
+    - shadows
+    */
+
+    /**
+     * Bug de rendu: fix possible en utilisant une table de hashage (ie {{}}) sur les coords des
+     * côtés à dégradé ?
+     */
+</script>
